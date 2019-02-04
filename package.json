@@ -1,0 +1,47 @@
+{
+  "name": "no-profanity",
+  "displayName": "No profanity",
+  "description": "No more bad words in your console logs!",
+  "version": "0.0.1",
+  "publisher": "aleksandra",
+  "icon": "assets/mad-emoji.png",
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blackdahila/no-profanity.git"
+  },
+  "homepage": "https://github.com/blackdahila/no-profanity/blob/master/README.md",
+  "activationEvents": [
+    "onCommand:extension.noProfanity"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.noProfanity",
+        "title": "No profanity 🤬"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {
+    "profanity-util": "^0.2.0"
+  }
+}
