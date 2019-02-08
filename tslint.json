@@ -1,0 +1,114 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-airbnb",
+    "tslint-sonarts",
+    "tslint-microsoft-contrib",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "mocha-no-side-effect-code": false, // We're not using mocha
+    "chai-vague-errors": false, // nor chai
+    "no-backbone-get-set-outside-model": false, // We're not using Backbone!
+    "no-single-line-block-comment": false, // We have @jsx jsx pragma comments for emotion
+    "no-null-keyword": false,
+    "use-simple-attributes": false,
+    // According to Microsoft/TypeScript#10717 the only way to get variance inference to work
+    // is to use the function signature style.
+    "prefer-method-signature": false,
+    // needed for <Args extends any[]>, we still don't want any
+    "no-any": false,
+    "newline-before-return": false,
+    "missing-jsdoc": false,
+    "no-relative-imports": false,
+    // no-var-requires enabled
+    "no-require-imports": false,
+    "typedef": false,
+    "prefer-type-cast": false,
+    "no-angle-bracket-type-assertion": true,
+    "react-this-binding-issue": false,
+    "export-name": false,
+    "no-namespace": [true, "allow-declarations"],
+    "max-union-size": false,
+    // "We recommend that you run this rule before each release as a quality checkpoint."
+    "no-suspicious-comment": false,
+    "no-console": false,
+    "prefer-template": true,
+    "align": [true, "parameters", "statements", "members", "elements"],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case",
+      "allow-snake-case",
+      "allow-leading-underscore"
+    ],
+    "prefer-array-literal": false,
+    "ter-arrow-parens": [true, "as-needed"],
+    "semicolon": [true, "always", "strict-bound-class-methods"],
+    "ban": [true, "eval", { "name": "$", "message": "please don't" }],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-module",
+      "check-operator",
+      "check-separator",
+      "check-type",
+      "check-typecast"
+    ],
+    "no-string-literal": false,
+    "object-literal-sort-keys": [true, "shorthand-first"],
+    "no-unused-expression": [true, "allow-tagged-template"],
+    "no-submodule-imports": true,
+    "no-object-literal-type-assertion": false,
+    "max-classes-per-file": false,
+    "import-name": false,
+    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
+    "jsx-no-multiline-js": false,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "always",
+          "arrays": "always",
+          "functions": "never",
+          "typeLiterals": "always"
+        },
+        "esSpecCompliant": true
+      }
+    ],
+    "interface-name": [true, "never-prefix"],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "lowercase-first",
+        "grouped-imports": true
+      }
+    ],
+    "no-implicit-dependencies": false,
+    "member-access": false,
+    "interface-over-type-literal": false,
+    "indent": [true, "spaces", 2],
+    "jsx-no-lambda": true,
+    "jsx-no-bind": true,
+    "jsx-alignment": true,
+    "jsx-boolean-value": [true, "never"],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "private-constructor",
+          "public-constructor",
+          "private-static-field",
+          "public-static-field",
+          "private-instance-field",
+          "public-instance-field",
+          "private-instance-method",
+          "protected-instance-method",
+          "public-instance-method"
+        ]
+      }
+    ]
+  }
+}

@@ -16,15 +16,15 @@
     "url": "https://github.com/blackdahila/no-profanity.git"
   },
   "homepage": "https://github.com/blackdahila/no-profanity/blob/master/README.md",
+  "main": "./out/extension",
   "activationEvents": [
     "onCommand:extension.noProfanity"
   ],
-  "main": "./out/extension",
   "contributes": {
     "commands": [
       {
         "command": "extension.noProfanity",
-        "title": "No profanity 🤬"
+        "title": "Censor all profanities 🤬"
       }
     ]
   },

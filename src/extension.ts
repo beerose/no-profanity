@@ -1,12 +1,12 @@
 'use strict';
 import * as vscode from 'vscode';
 
-import { purifyLogsHandler } from './purifylogs';
+import { purifyLogs } from './purifylogs';
 
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
     'extension.noProfanity',
-    purifyLogsHandler
+    purifyLogs
   );
 
   context.subscriptions.push(disposable);

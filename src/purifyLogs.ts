@@ -1,7 +1,7 @@
 import { purify } from 'profanity-util';
 import * as vscode from 'vscode';
 
-export const purifyLogsHandler = () => {
+export const purifyLogs = () => {
   const {
     activeTextEditor: { document },
   } = vscode.window;
@@ -9,14 +9,14 @@ export const purifyLogsHandler = () => {
   const workspaceEdit = new vscode.WorkspaceEdit();
 
   const logs = getConsoleLogs(document);
-  logs.forEach(
-    log =>
-      log.badWords &&
-      workspaceEdit.replace(document.uri, log.range, log.purified)
-  );
+  logs
+    .filter(log => log.badWordsCount > 0)
+    .forEach(log => {
+      workspaceEdit.replace(document.uri, log.range, log.purified);
+    });
 
   const badWordsCount = logs.reduce(
-    (prev, next) => prev + next.badWords,
+    (sum, log) => sum + log.badWordsCount,
     0
   );
 
@@ -39,7 +39,7 @@ const getConsoleLogs = (
 ): Array<{
   range: vscode.Range;
   purified: string;
-  badWords: number;
+  badWordsCount: number;
 }> => {
   const documentText = document.getText();
   let logStatements = [];
@@ -53,7 +53,7 @@ const getConsoleLogs = (
     const [purified, badWordsArray] = purify(match[0]);
     logStatements.push({
       purified,
-      badWords: badWordsArray.length,
+      badWordsCount: badWordsArray.length,
       range: matchRange,
     });
   }
