@@ -2,7 +2,7 @@
   "name": "no-profanity",
   "displayName": "No profanity",
   "description": "No more bad words in your console logs!",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "aleksandra",
   "icon": "assets/mad-emoji.png",
   "engines": {
